@@ -2,7 +2,7 @@ from tkinter import *
 
 
 calc = Tk()
-calc.geometry("350x350")
+calc.geometry("280x240")
 calc.title("Calculator")
 calc.configure(background='grey')
 display_in = StringVar()
@@ -24,7 +24,13 @@ def equal_button():
 
 def clear_button():
     display_in.set('')
+"""
+def perc_button(val):
+    perc = str(val%100)
+    display_in.set(perc)
+    operator = ''
 
+"""
 
 
 display = Entry(calc,font=("Courier New",12,'bold'),width=25,bd=5,bg='grey',textvar=display_in)
@@ -73,7 +79,7 @@ button_div = Button(calc, text='÷', bg='black', fg='#11ad31', font=('Corbel Lig
 button_mul = Button(calc, text='x', bg='black', fg='#11ad31', font=('Corbel Light', 15, 'bold'), command=lambda: click_button('*'))
 button_min = Button(calc, text='-', bg='black', fg='#11ad31', font=('Corbel Light', 15, 'bold'), command=lambda: click_button('-'))
 button_plus = Button(calc, text='+', bg='black', fg='#11ad31', font=('Corbel Light', 15, 'bold'), command=lambda: click_button('+'))
-button_perc = Button(calc, text='%', bg='black', fg='white', font=('Corbel Light', 15, 'bold'), command=equal_button)
+button_perc = Button(calc, text='%', bg='black', fg='white', font=('Corbel Light', 15, 'bold'))
 button_back = Button(calc, text='←', bg='black', fg='#ad4e2b', font=('Corbel Light', 15, 'bold'))
 
 button_div.grid(row=1,column=3,sticky="news",columnspan=3)
@@ -93,3 +99,4 @@ button_equ.grid(row=5,column=3,sticky="news",columnspan=3)
 
 
 calc.mainloop()
+
