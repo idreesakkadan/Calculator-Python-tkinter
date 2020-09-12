@@ -31,13 +31,21 @@ def clear_button():
     display.delete(first=0,last=100)
     operator = ''
 
-"""
+
 def perc_button(val):
-    perc = str(val%100)
+    global operator
+    perc = str(val/100)
     display_in.set(perc)
     operator = ''
 
-"""
+def button_backspace():
+    global operator
+    global display_in
+    operator = operator[:-1] # Remove last digit
+    if operator: # If there is at list one digit
+       display_in.set(operator)
+    else: # In this case display 0 in text_box
+       display_in.set('')
 
 
 display = Entry(calc,font=("Courier New",12,'bold'),width=25,bd=5,bg='grey',textvar=display_in)
@@ -86,8 +94,8 @@ button_div = Button(calc, text='÷', bg='black', fg='#11ad31', font=('Corbel Lig
 button_mul = Button(calc, text='x', bg='black', fg='#11ad31', font=('Corbel Light', 15, 'bold'), command=lambda: click_button('*'))
 button_min = Button(calc, text='-', bg='black', fg='#11ad31', font=('Corbel Light', 15, 'bold'), command=lambda: click_button('-'))
 button_plus = Button(calc, text='+', bg='black', fg='#11ad31', font=('Corbel Light', 15, 'bold'), command=lambda: click_button('+'))
-button_perc = Button(calc, text='%', bg='black', fg='white', font=('Corbel Light', 15, 'bold'))
-button_back = Button(calc, text='←', bg='black', fg='#ad4e2b', font=('Corbel Light', 15, 'bold'))
+button_perc = Button(calc, text='%', bg='black', fg='white', font=('Corbel Light', 15, 'bold'),command=lambda:perc_button(display_in))
+button_back = Button(calc, text='←', bg='black', fg='#ad4e2b', font=('Corbel Light', 15, 'bold'),command=button_backspace)
 
 button_div.grid(row=1,column=3,sticky="news",columnspan=3)
 button_mul.grid(row=2,column=3,sticky="news",columnspan=3)
