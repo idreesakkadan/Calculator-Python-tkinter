@@ -22,8 +22,15 @@ def equal_button():
     display_in.set(add)
     operator = ''
 
+
+
+
+
 def clear_button():
-    display_in.set('')
+    global operator
+    display.delete(first=0,last=100)
+    operator = ''
+
 """
 def perc_button(val):
     perc = str(val%100)
@@ -67,7 +74,7 @@ b3.grid(row=4, column=2, sticky='nesw')
 b0 = Button(calc, text=0, bg='black', fg='white', font=('Corbel Light', 15, 'bold'), command=lambda: click_button(0))
 b0.grid(row=5, column=0, sticky='nesw')
 
-b00 = Button(calc, text='00', bg='black', fg='white', font=('Corbel Light', 15, 'bold'), command=lambda: click_button(00))
+b00 = Button(calc, text='00', bg='black', fg='white', font=('Corbel Light', 15, 'bold'), command=lambda: click_button('00'))
 b00.grid(row=5, column=1, sticky='nesw')
 
 b11 = Button(calc, text='. ', bg='black', fg='white', font=('Corbel Light', 15, 'bold'), command=lambda: click_button('.'))
