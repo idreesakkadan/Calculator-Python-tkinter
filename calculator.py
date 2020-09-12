@@ -2,7 +2,7 @@ from tkinter import *
 
 calc = Tk()
 calc.geometry("280x240")
-calc.title("Calculator")
+calc.title("Idri's Calculator")
 calc.configure(background='grey')
 display_in = StringVar()
 operator = ""
